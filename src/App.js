@@ -83,11 +83,6 @@ class ControlPanel extends Component {
 			});
 		}
 	}
-	componentDidMount() {
-		if ( $('[type="date"]').prop('type') != 'date' ) {
-			$('[type="date"]').datepicker();
-		}
-	}
 	handleChangeName(event) {
 		console.log($());
 		this.setState({nameInput: event.target.value})

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import { Grid, Row, Col, ListGroup, ListGroupItem, Panel, FormGroup, Checkbox, ControlLabel, FormControl, Radio, Button, ButtonToolbar, Alert } from "react-bootstrap";
+import $ from "jquery";
 
 class ListWorker extends Component {
 	render() {
@@ -82,7 +83,13 @@ class ControlPanel extends Component {
 			});
 		}
 	}
+	componentDidMount() {
+		if ( $('[type="date"]').prop('type') != 'date' ) {
+			$('[type="date"]').datepicker();
+		}
+	}
 	handleChangeName(event) {
+		console.log($());
 		this.setState({nameInput: event.target.value})
 		if (this.state.isShowingError && this.state.nameInput != "") {
 			this.setState({isShowingError: false});
@@ -145,6 +152,7 @@ class ControlPanel extends Component {
 								onChange={this.handleChangeName} 
 								value={this.state.nameInput}
 							/>
+							<FormControl.Feedback />
 						</FormGroup>
 						<FormGroup>
 							<ControlLabel>Должность</ControlLabel>

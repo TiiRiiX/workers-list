@@ -2,10 +2,12 @@
   "name": "workers-list",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tiiriix.github.io/workers-list",
   "dependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "bootstrap": "^3.3.7",
     "connect-history-api-fallback": "^1.5.0",
+    "gh-pages": "^1.1.0",
     "json3": "^3.3.2",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
@@ -13,6 +15,8 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
